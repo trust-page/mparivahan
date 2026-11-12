@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>mParivahan NextGen · Official Download | Government of India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        :root {
+            --sky-blue: #e8f2fd;
+            --sky-blue-light: #f0f5fb;
+            --sky-blue-deep: #c8ddf5;
+            --primary-blue: #0f3b7a;
+            --primary-blue-mid: #1a4f9e;
+            --accent-blue: #2563c4;
+            --saffron: #ff9933;
+            --saffron-light: #fff3e3;
+            --white: #ffffff;
+            --green: #138808;
+            --green-light: #e8f5e9;
+            --text-dark: #0b1c34;
+            --text-mid: #1e3a5c;
+            --text-light: #4a6280;
+            --gold: #b8860b;
+            --gold-light: #fdf6e8;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.06);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 22px;
+            --radius-xl: 28px;
+            --radius-2xl: 36px;
+            --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Inter', 'Noto Sans', Roboto, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 0 90px;
+            background: linear-gradient(175deg, #e4f0fc 0%, #dceaf9 15%, #e8f3fd 30%, #d9e8f7 50%, #e2eefb 70%, #dce8f5 85%, #e6f1fc 100%);
+            background-attachment: fixed;
+            color: var(--text-dark);
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Subtle sky-blue texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse at 15% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 55%),
+                radial-gradient(ellipse at 78% 65%, rgba(200, 220, 245, 0.45) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(180, 210, 240, 0.35) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 12%, rgba(255, 255, 255, 0.4) 0%, transparent 45%);
+            opacity: 0.8;
+        }
+
+        /* -------- TOP TRICOLOR STRIP -------- */
+        .tricolor-strip {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            z-index: 200;
+            display: flex;
+            pointer-events: none;
+        }
+        .tricolor-strip .saffron-strip {
+            flex: 1;
+            background: #ff9933;
+        }
+        .tricolor-strip .white-strip {
+            flex: 1;
+            background: #ffffff;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tricolor-strip .green-strip {
+            flex: 1;
+            background: #138808;
+        }
+        .tricolor-strip .ashoka-chakra-mini {
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+
+        /* -------- MAIN CONTAINER -------- */
+        .main-container {
+            max-width: 1060px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            padding: 18px 20px 10px;
+        }
+
+        /* -------- TOP BAR -------- */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 14px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: var(--radius-lg);
+            padding: 14px 20px;
+            border: 1px solid rgba(200, 215, 235, 0.45);
+            box-shadow: var(--shadow-sm);
+        }
+        .top-bar .govt-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .top-bar .emblem-container {
+            width: 46px;
+            height: 52px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .top-bar .emblem-container svg {
+            width: 44px;
+            height: 50px;
+        }
+        .top-bar .govt-text .govt-of-india {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a3c64;
+            letter-spacing: 0.4px;
+            line-height: 1.1;
+        }
+        .top-bar .govt-text .ministry-name {
+            font-size: 11px;
+            font-weight: 500;
+            color: #3a5678;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+        }
+        .top-bar .nic-badge {
+            background: #0f3b7a;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 7px 16px;
+            border-radius: 30px;
+            letter-spacing: 0.6px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            white-space: nowrap;
+            box-shadow: var(--shadow-sm);
+        }
+        .top-bar .nic-badge i {
+            font-size: 12px;
+        }
+
+        /* -------- HERO CARD -------- */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: var(--radius-2xl);
+            padding: 32px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(210, 225, 245, 0.55);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-card::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(26, 79, 158, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-card .app-icon-large {
+            width: 96px;
+            height: 96px;
+            flex-shrink: 0;
+            background: linear-gradient(150deg, #0f3b7a 0%, #1a4f9e 40%, #1e5db8 100%);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 28px rgba(15, 59, 122, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        .app-icon-large .icon-inner {
+            font-size: 44px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-card .hero-info {
+            flex: 1;
+            min-width: 220px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-card .hero-info .app-title {
+            font-size: 34px;
+            font-weight: 800;
+            color: #0b1c34;
+            letter-spacing: -0.4px;
+            line-height: 1.1;
+            margin-bottom: 2px;
+        }
+        .hero-card .hero-info .app-title .nextgen-highlight {
+            background: linear-gradient(135deg, #0f3b7a, #1e5db8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-card .hero-info .app-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3a5678;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .hero-card .hero-info .app-subtitle .verified-badge {
+            background: #e8f5e9;
+            color: #138808;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .hero-card .hero-info .app-desc {
+            font-size: 15px;
+            color: #4a6280;
+            line-height: 1.55;
+            margin-bottom: 18px;
+            max-width: 460px;
+        }
+        .hero-card .download-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+        }
+        .btn-download-primary {
+            background: #0b1c34;
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(11, 28, 52, 0.2);
+            letter-spacing: 0.2px;
+            position: relative;
+            z-index: 1;
+        }
+        .btn-download-primary:hover {
+            background: #152d52;
+            box-shadow: 0 10px 28px rgba(11, 28, 52, 0.3);
+            transform: translateY(-2px);
+        }
+        .btn-download-primary:active {
+            transform: scale(0.96);
+            box-shadow: 0 3px 10px rgba(11, 28, 52, 0.25);
+        }
+        .btn-download-primary i {
+            font-size: 22px;
+        }
+        .qr-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 18px;
+            border-radius: 40px;
+            border: 1px solid rgba(200, 215, 235, 0.5);
+            font-size: 13px;
+            font-weight: 500;
+            color: #1a3c64;
+            box-shadow: var(--shadow-sm);
+            cursor: default;
+        }
+        .qr-chip i {
+            font-size: 24px;
+            color: #1a4f9e;
+            opacity: 0.75;
+        }
+        .hero-card .hero-visual {
+            flex: 0 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-card .hero-visual img {
+            width: 150px;
+            height: auto;
+            border-radius: 26px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+            background: transparent;
+            display: block;
+        }
+
+        /* -------- ASHOKA CHAKRA WATERMARK SVG (large background) -------- */
+        .bg-emblem-watermark {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.055;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+        }
+        .bg-emblem-watermark svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* -------- STATS ROW -------- */
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            flex: 1 1 130px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 18px 16px;
+            text-align: center;
+            border: 1px solid rgba(210, 225, 245, 0.5);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        .stat-card .stat-icon {
+            font-size: 26px;
+            color: #1a4f9e;
+            margin-bottom: 6px;
+        }
+        .stat-card .stat-number {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0b1c34;
+            letter-spacing: -0.3px;
+        }
+        .stat-card .stat-label {
+            font-size: 12px;
+            color: #4a6280;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* -------- SERVICES GRID -------- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            margin-top: 4px;
+        }
+        .section-header .section-icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(26, 79, 158, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a4f9e;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0b1c34;
+            letter-spacing: -0.2px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: var(--radius-lg);
+            padding: 18px 16px;
+            border: 1px solid rgba(210, 225, 245, 0.5);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #b8ceea;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        .service-card .svc-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(26, 79, 158, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a4f9e;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+        .service-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0b1c34;
+            margin-bottom: 3px;
+        }
+        .service-card p {
+            font-size: 12px;
+            color: #4a6280;
+            line-height: 1.4;
+        }
+        .service-card .new-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #1a4f9e;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.4px;
+        }
+
+        /* -------- WHY SECTION -------- */
+        .why-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            padding: 26px 26px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(210, 225, 245, 0.5);
+            box-shadow: var(--shadow-sm);
+        }
+        .why-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0b1c34;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .why-grid-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .why-item-sm {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .why-item-sm .why-icon-sm {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: rgba(26, 79, 158, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a4f9e;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .why-item-sm h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0b1c34;
+        }
+        .why-item-sm p {
+            font-size: 12px;
+            color: #4a6280;
+            line-height: 1.4;
+        }
+
+        /* -------- PREVIEW DASHBOARD -------- */
+        .preview-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            padding: 22px 24px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(210, 225, 245, 0.5);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        .preview-item-sm {
+            flex: 1 1 140px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .preview-item-sm .prev-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 11px;
+            background: rgba(26, 79, 158, 0.07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a4f9e;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+        .preview-item-sm .prev-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6b7d94;
+            font-weight: 600;
+        }
+        .preview-item-sm .prev-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0b1c34;
+        }
+        .preview-item-sm .prev-sub {
+            font-size: 11px;
+            color: #1a4f9e;
+        }
+
+        /* -------- RATING & ALERT -------- */
+        .rating-alert-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .rating-card {
+            flex: 1 1 280px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            border: 1px solid rgba(210, 225, 245, 0.5);
+            box-shadow: var(--shadow-sm);
+        }
+        .stars-display {
+            color: #f5a623;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+        .rating-card .rating-text {
+            font-weight: 600;
+            color: #0b1c34;
+            font-size: 14px;
+        }
+        .rating-card .rating-text span {
+            color: #1a4f9e;
+            font-weight: 800;
+            font-size: 18px;
+        }
+        .alert-card {
+            flex: 1 1 280px;
+            background: rgba(255, 248, 237, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: var(--radius-lg);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-left: 4px solid #ff9933;
+            border: 1px solid rgba(255, 180, 80, 0.35);
+            box-shadow: var(--shadow-sm);
+        }
+        .alert-card i {
+            color: #d98c1c;
+            font-size: 18px;
+        }
+        .alert-card span {
+            font-weight: 500;
+            color: #6d4f1a;
+            font-size: 13px;
+        }
+        .alert-card .alert-highlight {
+            font-weight: 700;
+            color: #a7630f;
+        }
+
+        /* -------- STEPS -------- */
+        .steps-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        .step-item {
+            flex: 1 1 120px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: var(--radius-lg);
+            padding: 18px 14px;
+            border: 1px solid rgba(210, 225, 245, 0.45);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .step-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .step-number-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #0f3b7a;
+            color: #fff;
+            font-weight: 800;
+            font-size: 19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            box-shadow: 0 4px 14px rgba(15, 59, 122, 0.3);
+        }
+        .step-item p {
+            font-weight: 700;
+            color: #0b1c34;
+            font-size: 14px;
+        }
+        .step-item small {
+            color: #4a6280;
+            font-size: 11px;
+        }
+
+        /* -------- TRUST BADGES -------- */
+        .trust-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .trust-chip {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1a3c64;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 7px 15px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            border: 1px solid rgba(200, 215, 235, 0.4);
+            box-shadow: var(--shadow-sm);
+            white-space: nowrap;
+        }
+        .trust-chip i {
+            color: #1a4f9e;
+            font-size: 13px;
+        }
+
+        /* -------- BOTTOM CTA -------- */
+        .bottom-cta {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 16px 24px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(210, 225, 245, 0.5);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        .bottom-cta span {
+            font-weight: 700;
+            font-size: 18px;
+            color: #0b1c34;
+        }
+        .bottom-cta .btn-download-secondary {
+            background: #0b1c34;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 16px rgba(11, 28, 52, 0.2);
+        }
+        .bottom-cta .btn-download-secondary:hover {
+            background: #152d52;
+            box-shadow: 0 8px 24px rgba(11, 28, 52, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* -------- FOOTER -------- */
+        .footer-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(180, 200, 225, 0.5);
+            font-size: 13px;
+            color: #4a6280;
+        }
+        .footer-bar .footer-links a {
+            color: #1a4f9e;
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .footer-bar .footer-links a:hover {
+            color: #0f3b7a;
+            text-decoration: underline;
+        }
+
+        /* -------- FLOATING BOTTOM BAR -------- */
+        .floating-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 12px 22px;
+            box-shadow: 0 -5px 24px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            z-index: 150;
+            border-top: 1px solid rgba(210, 225, 245, 0.55);
+        }
+        .floating-bottom-bar .float-app-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: #0b1c34;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .floating-bottom-bar .float-app-name i {
+            color: #1a4f9e;
+            font-size: 18px;
+        }
+        .floating-bottom-bar .btn-float-download {
+            background: #0b1c34;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            box-shadow: 0 3px 12px rgba(11, 28, 52, 0.2);
+        }
+        .floating-bottom-bar .btn-float-download:hover {
+            background: #152d52;
+            box-shadow: 0 6px 18px rgba(11, 28, 52, 0.3);
+        }
+
+        /* -------- RESPONSIVE -------- */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 10px 12px 8px;
+            }
+            .hero-card {
+                padding: 20px 18px;
+                gap: 18px;
+                border-radius: var(--radius-xl);
+            }
+            .hero-card .app-icon-large {
+                width: 70px;
+                height: 70px;
+                border-radius: 18px;
+            }
+            .app-icon-large .icon-inner {
+                font-size: 32px;
+            }
+            .hero-card .hero-info .app-title {
+                font-size: 26px;
+            }
+            .hero-card .hero-visual img {
+                width: 100px;
+                border-radius: 20px;
+            }
+            .stats-row {
+                gap: 8px;
+            }
+            .stat-card {
+                padding: 12px 10px;
+                border-radius: var(--radius-md);
+            }
+            .stat-card .stat-number {
+                font-size: 20px;
+            }
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 10px;
+            }
+            .service-card {
+                padding: 14px 12px;
+                border-radius: var(--radius-md);
+            }
+            .why-card {
+                padding: 18px 16px;
+                border-radius: var(--radius-lg);
+            }
+            .preview-card {
+                padding: 14px 16px;
+                gap: 12px;
+                border-radius: var(--radius-lg);
+            }
+            .rating-alert-row {
+                gap: 10px;
+            }
+            .bottom-cta {
+                border-radius: 30px;
+                padding: 12px 16px;
+                gap: 10px;
+            }
+            .bottom-cta span {
+                font-size: 15px;
+            }
+            .footer-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .footer-bar .footer-links a {
+                margin-left: 0;
+                margin-right: 14px;
+            }
+            .floating-bottom-bar {
+                padding: 10px 14px;
+            }
+            .floating-bottom-bar .float-app-name {
+                font-size: 13px;
+            }
+            .floating-bottom-bar .btn-float-download {
+                padding: 8px 18px;
+                font-size: 12px;
+            }
+            .top-bar {
+                padding: 10px 14px;
+                gap: 10px;
+                border-radius: var(--radius-md);
+            }
+            .top-bar .emblem-container {
+                width: 34px;
+                height: 38px;
+            }
+            .top-bar .emblem-container svg {
+                width: 32px;
+                height: 36px;
+            }
+            .top-bar .govt-text .govt-of-india {
+                font-size: 11px;
+            }
+            .top-bar .govt-text .ministry-name {
+                font-size: 9px;
+            }
+            .top-bar .nic-badge {
+                font-size: 10px;
+                padding: 5px 10px;
+            }
+        }
+        @media (max-width: 420px) {
+            .hero-card .hero-visual img {
+                width: 70px;
+            }
+            .hero-card .hero-info .app-title {
+                font-size: 22px;
+            }
+            .btn-download-primary {
+                padding: 11px 20px;
+                font-size: 13px;
+                gap: 8px;
+            }
+            .btn-download-primary i {
+                font-size: 17px;
+            }
+            .qr-chip {
+                font-size: 11px;
+                padding: 8px 12px;
+            }
+            .stats-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .stat-card {
+                flex: 1 1 70px;
+                min-width: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOP TRICOLOR STRIP WITH ASHOKA CHAKRA -->
+<div class="tricolor-strip">
+    <div class="saffron-strip"></div>
+    <div class="white-strip">
+        <svg class="ashoka-chakra-mini" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#000080" stroke-width="3.5" />
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#000080" stroke-width="1.2" />
+            <circle cx="50" cy="50" r="6" fill="#000080" />
+            <!-- 24 spokes -->
+            <g stroke="#000080" stroke-width="1.5">
+                <line x1="50" y1="14" x2="50" y2="44" />
+                <line x1="50" y1="56" x2="50" y2="86" />
+                <line x1="14" y1="50" x2="44" y2="50" />
+                <line x1="56" y1="50" x2="86" y2="50" />
+                <line x1="24.5" y1="24.5" x2="44" y2="44" />
+                <line x1="56" y1="56" x2="75.5" y2="75.5" />
+                <line x1="75.5" y1="24.5" x2="56" y2="44" />
+                <line x1="44" y1="56" x2="24.5" y2="75.5" />
+                <!-- additional spokes for 24 total -->
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(15 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(30 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(45 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(60 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(75 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(90 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(105 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(120 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(135 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(150 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(165 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(180 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(195 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(210 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(225 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(240 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(255 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(270 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(285 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(300 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(315 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(330 50 50)" />
+                <line x1="50" y1="14" x2="50" y2="44" transform="rotate(345 50 50)" />
+            </g>
+        </svg>
+    </div>
+    <div class="green-strip"></div>
+</div>
+
+<!-- LARGE BACKGROUND ASHOKA CHAKRA WATERMARK -->
+<div class="bg-emblem-watermark">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="185" fill="none" stroke="#0f3b7a" stroke-width="4" />
+        <circle cx="200" cy="200" r="155" fill="none" stroke="#0f3b7a" stroke-width="1.5" />
+        <circle cx="200" cy="200" r="22" fill="#0f3b7a" />
+        <!-- 24 spokes -->
+        <g stroke="#0f3b7a" stroke-width="2.2">
+            <line x1="200" y1="45" x2="200" y2="178" />
+            <line x1="200" y1="222" x2="200" y2="355" />
+            <line x1="45" y1="200" x2="178" y2="200" />
+            <line x1="222" y1="200" x2="355" y2="200" />
+            <line x1="90" y1="90" x2="171" y2="171" />
+            <line x1="229" y1="229" x2="310" y2="310" />
+            <line x1="310" y1="90" x2="229" y2="171" />
+            <line x1="171" y1="229" x2="90" y2="310" />
+        </g>
+        <g stroke="#0f3b7a" stroke-width="1.8" opacity="0.7">
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(15 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(30 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(45 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(60 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(75 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(105 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(120 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(135 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(150 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(165 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(195 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(210 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(225 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(240 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(255 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(270 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(285 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(300 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(315 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(330 200 200)" />
+            <line x1="200" y1="45" x2="200" y2="178" transform="rotate(345 200 200)" />
+        </g>
+        <!-- Outer decorative dots -->
+        <g fill="#0f3b7a" opacity="0.5">
+            <circle cx="200" cy="15" r="4" />
+            <circle cx="200" cy="385" r="4" />
+            <circle cx="15" cy="200" r="4" />
+            <circle cx="385" cy="200" r="4" />
+            <circle cx="69" cy="69" r="3.5" />
+            <circle cx="331" cy="331" r="3.5" />
+            <circle cx="331" cy="69" r="3.5" />
+            <circle cx="69" cy="331" r="3.5" />
+        </g>
+    </svg>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-container">
+
+    <!-- TOP BAR with National Emblem (Lion Capital) -->
+    <div class="top-bar">
+        <div class="govt-brand">
+            <div class="emblem-container">
+                <!-- Simplified Lion Capital of Ashoka (National Emblem) SVG -->
+                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Abacus base -->
+                    <rect x="22" y="88" width="56" height="12" rx="3" fill="#1a3c64" />
+                    <!-- Abacus decorative band -->
+                    <rect x="20" y="84" width="60" height="6" rx="2" fill="#0f3b7a" />
+                    <!-- Frieze animals (stylized) -->
+                    <g fill="#1a3c64" opacity="0.8">
+                        <circle cx="30" cy="90" r="3.5" />
+                        <circle cx="42" cy="90" r="3.5" />
+                        <circle cx="54" cy="90" r="3.5" />
+                        <circle cx="66" cy="90" r="3.5" />
+                    </g>
+                    <!-- Central pillar -->
+                    <rect x="44" y="50" width="12" height="36" rx="2" fill="#1a3c64" />
+                    <!-- Capital top platform -->
+                    <ellipse cx="50" cy="50" rx="26" ry="10" fill="#0f3b7a" />
+                    <!-- Three visible lion heads (stylized) -->
+                    <g fill="#1a3c64">
+                        <!-- Center lion -->
+                        <ellipse cx="50" cy="28" rx="10" ry="16" />
+                        <circle cx="50" cy="20" r="8" />
+                        <!-- Left lion -->
+                        <ellipse cx="30" cy="32" rx="9" ry="14" />
+                        <circle cx="30" cy="24" r="7" />
+                        <!-- Right lion -->
+                        <ellipse cx="70" cy="32" rx="9" ry="14" />
+                        <circle cx="70" cy="24" r="7" />
+                    </g>
+                    <!-- Lion manes (texture lines) -->
+                    <g stroke="#fff" stroke-width="1.2" opacity="0.5">
+                        <line x1="44" y1="16" x2="44" y2="24" />
+                        <line x1="50" y1="12" x2="50" y2="20" />
+                        <line x1="56" y1="16" x2="56" y2="24" />
+                        <line x1="25" y1="20" x2="25" y2="28" />
+                        <line x1="35" y1="18" x2="35" y2="26" />
+                        <line x1="65" y1="18" x2="65" y2="26" />
+                        <line x1="75" y1="20" x2="75" y2="28" />
+                    </g>
+                    <!-- Dharma Chakra on abacus -->
+                    <circle cx="50" cy="92" r="6" fill="none" stroke="#fff" stroke-width="1.5" />
+                    <circle cx="50" cy="92" r="2" fill="#fff" />
+                    <!-- Motto base -->
+                    <rect x="30" y="101" width="40" height="14" rx="4" fill="#0f3b7a" />
+                    <text x="50" y="112" text-anchor="middle" fill="#fff" font-size="8" font-weight="700" letter-spacing="0.5">सत्यमेव जयते</text>
+                </svg>
+            </div>
+            <div class="govt-text">
+                <div class="govt-of-india">भारत सरकार · Government of India</div>
+                <div class="ministry-name">Ministry of Road Transport &amp; Highways</div>
+            </div>
+        </div>
+        <div class="nic-badge">
+            <i class="fas fa-microchip"></i> NIC · रा.सू.के.
+        </div>
+    </div>
+
+    <!-- HERO CARD -->
+    <div class="hero-card">
+        <div class="app-icon-large">
+            <div class="icon-inner">
+                <i class="fas fa-flag-checkered"></i>
+            </div>
+        </div>
+        <div class="hero-info">
+            <div class="app-title">mParivahan <span class="nextgen-highlight">NextGen</span></div>
+            <div class="app-subtitle">
+                आपका ऊर्जा साथी · Your Energy Partner
+                <span class="verified-badge"><i class="fas fa-check-circle"></i> Govt. Verified</span>
+            </div>
+            <p class="app-desc">
+                Access RTO services, vehicle details, driving licence, challan alerts, insurance expiry, and more — all in one official app trusted by millions of Indians.
+            </p>
+            <div class="download-row">
+                <a href="dropper/NextGen_mParivahan.apk" class="btn-download-primary" aria-label="Download mParivahan APK" download>
+                    <i class="fab fa-google-play"></i> Download Now
+                </a>
+                <div class="qr-chip">
+                    <i class="fas fa-qrcode"></i> Scan QR to install
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="https://play-lh.googleusercontent.com/UPyefodA-z6CpCFyQ6f2Gf4v2_qOdP-VroqRh-S4xKL6uKD7stMPKq4goEESGZe3mlsAS-oD9RljiDv7mJDUXrk"
+                 alt="mParivahan App Icon"
+                 loading="eager"
+                 width="150"
+                 height="150" />
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-download"></i></div>
+            <div class="stat-number">10M+</div>
+            <div class="stat-label">Total Downloads</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-star"></i></div>
+            <div class="stat-number">4.7 ★</div>
+            <div class="stat-label">50,000+ Reviews</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-shield-halved"></i></div>
+            <div class="stat-number">Govt.</div>
+            <div class="stat-label">Official RTO App</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+            <div class="stat-number">24×7</div>
+            <div class="stat-label">Service Available</div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="section-header">
+        <div class="section-icon-circle"><i class="fas fa-th-large"></i></div>
+        <h2>Key Services · मुख्य सेवाएं</h2>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="svc-icon"><i class="fas fa-truck"></i></div>
+            <h4>Transport Services</h4>
+            <p>RTO, permits, fitness &amp; tax</p>
+        </div>
+        <div class="service-card">
+            <div class="svc-icon"><i class="fas fa-money-bill-transfer"></i></div>
+            <h4>My Transactions</h4>
+            <p>Payment history &amp; receipts</p>
+        </div>
+        <div class="service-card">
+            <div class="svc-icon"><i class="fas fa-eye"></i></div>
+            <h4>Citizen Sentinel</h4>
+            <p>Report violations &amp; track</p>
+            <span class="new-tag">NEW</span>
+        </div>
+        <div class="service-card">
+            <div class="svc-icon"><i class="fas fa-circle-info"></i></div>
+            <h4>Informational</h4>
+            <p>Helplines, updates &amp; FAQs</p>
+        </div>
+    </div>
+
+    <!-- WHY SECTION -->
+    <div class="why-card">
+        <h3><i class="fas fa-rocket" style="color:#1a4f9e;"></i> Why mParivahan NextGen?</h3>
+        <div class="why-grid-inner">
+            <div class="why-item-sm">
+                <div class="why-icon-sm"><i class="fas fa-clock"></i></div>
+                <div>
+                    <h4>Real-time Alerts</h4>
+                    <p>Instant expiry &amp; challan notifications.</p>
+                </div>
+            </div>
+            <div class="why-item-sm">
+                <div class="why-icon-sm"><i class="fas fa-lock"></i></div>
+                <div>
+                    <h4>100% Secure</h4>
+                    <p>Govt.-grade encryption &amp; data privacy.</p>
+                </div>
+            </div>
+            <div class="why-item-sm">
+                <div class="why-icon-sm"><i class="fas fa-mobile-screen"></i></div>
+                <div>
+                    <h4>Seamless UX</h4>
+                    <p>Fast, intuitive &amp; works offline.</p>
+                </div>
+            </div>
+            <div class="why-item-sm">
+                <div class="why-icon-sm"><i class="fas fa-headset"></i></div>
+                <div>
+                    <h4>24×7 Support</h4>
+                    <p>Dedicated helpdesk &amp; in-app chat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREVIEW DASHBOARD -->
+    <div class="section-header">
+        <div class="section-icon-circle"><i class="fas fa-id-card"></i></div>
+        <h2>Your Dashboard · आपका डैशबोर्ड</h2>
+    </div>
+    <div class="preview-card">
+        <div class="preview-item-sm">
+            <div class="prev-icon"><i class="fas fa-car-side"></i></div>
+            <div>
+                <div class="prev-label">My Vehicle</div>
+                <div class="prev-value">Your Vehicle</div>
+                <div class="prev-sub">e.g. MH 01 · AB 1234</div>
+            </div>
+        </div>
+        <div class="preview-item-sm">
+            <div class="prev-icon"><i class="fas fa-id-card"></i></div>
+            <div>
+                <div class="prev-label">Driving Licence</div>
+                <div class="prev-value">Your Licence</div>
+                <div class="prev-sub">Verify instantly</div>
+            </div>
+        </div>
+        <div class="preview-item-sm">
+            <div class="prev-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div>
+                <div class="prev-label">Validity (NT)</div>
+                <div class="prev-value">-- / -- / ----</div>
+                <div class="prev-sub"><i class="fas fa-clock" style="color:#f5a623;"></i> Check in app</div>
+            </div>
+        </div>
+        <div class="preview-item-sm">
+            <div class="prev-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+                <div class="prev-label">Insurance</div>
+                <div class="prev-value">Your Policy</div>
+                <div class="prev-sub"><i class="fas fa-check-circle" style="color:#138808;"></i> Active</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RATING & ALERT -->
+    <div class="rating-alert-row">
+        <div class="rating-card">
+            <div class="stars-display">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="rating-text">
+                <span>4.7</span> out of 5 · 50K+ ratings · <strong>"Best RTO app!"</strong>
+            </div>
+            <div style="margin-left:auto;font-size:13px;color:#1a3c64;">
+                <i class="fas fa-check-circle" style="color:#138808;"></i> Trusted
+            </div>
+        </div>
+        <div class="alert-card">
+            <i class="fas fa-bell"></i>
+            <span><span class="alert-highlight">Stay informed:</span> We notify you 30 days before expiry — never miss a renewal.</span>
+            <span style="background:#fff3e3;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:600;color:#a7630f;">
+                    <i class="fas fa-check-circle" style="color:#138808;"></i> Always on time
+                </span>
+        </div>
+    </div>
+
+    <!-- STEPS -->
+    <div style="text-align:center;margin-bottom:8px;">
+        <h3 style="font-size:20px;font-weight:700;color:#0b1c34;display:inline-flex;align-items:center;gap:10px;">
+            <i class="fas fa-arrow-down" style="color:#1a4f9e;"></i> Get Started in 3 Simple Steps
+        </h3>
+    </div>
+    <div class="steps-row">
+        <div class="step-item">
+            <div class="step-number-circle">1</div>
+            <p>Download</p>
+            <small>from Google Play</small>
+        </div>
+        <div class="step-item">
+            <div class="step-number-circle">2</div>
+            <p>Install &amp; Open</p>
+            <small>under 1 minute</small>
+        </div>
+        <div class="step-item">
+            <div class="step-number-circle">3</div>
+            <p>Add Your Vehicle</p>
+            <small>&amp; explore services</small>
+        </div>
+    </div>
+
+    <!-- TRUST BADGES -->
+    <div class="trust-row">
+        <span class="trust-chip"><i class="fas fa-check-circle"></i> Government of India</span>
+        <span class="trust-chip"><i class="fas fa-shield-halved"></i> SSL Encrypted</span>
+        <span class="trust-chip"><i class="fas fa-user-check"></i> Verified by RTO</span>
+        <span class="trust-chip"><i class="fas fa-mobile-screen"></i> Android · iOS Coming Soon</span>
+    </div>
+
+    <!-- BOTTOM CTA -->
+    <div class="bottom-cta">
+        <span>🇮🇳 Join 1 Crore+ Indians. Download now!</span>
+        <a href="dropper/NextGen_mParivahan.apk" class="btn-download-secondary" download>
+            <i class="fab fa-google-play"></i> Get it on Google Play
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-bar">
+        <span>© 2026 mParivahan NextGen · National Informatics Centre · भारत सरकार</span>
+        <div class="footer-links">
+            <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+            <a href="#"><i class="fas fa-lock"></i> Privacy Policy</a>
+            <a href="#"><i class="fas fa-share-alt"></i> Share App</a>
+        </div>
+    </div>
+</div>
+
+<!-- FLOATING BOTTOM BAR -->
+<div class="floating-bottom-bar">
+        <span class="float-app-name">
+            <i class="fas fa-flag-checkered"></i> mParivahan NextGen
+        </span>
+    <a href="dropper/NextGen_mParivahan.apk" class="btn-float-download" download>
+        <i class="fab fa-google-play"></i> Download Now
+    </a>
+</div>
+
+</body>
+</html>
