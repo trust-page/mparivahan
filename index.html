@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextGen mParivahan - Apps on Google Play</title>
+
+    <!-- Exact Play Store Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --play-blue: #0b57d0;
+        --text-main: #1f1f1f;
+        --text-sec: #5f6368;
+        --border-color: #e0e0e0;
+        --surface-hover: #f1f3f4;
+        --star-filled: #0b57d0;
+        --star-empty: #e8eaed;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        background: #fff;
+        color: var(--text-main);
+        padding-bottom: 30px;
+      }
+
+      h1,
+      h2,
+      h3,
+      .g-sans {
+        font-family: "Google Sans", Arial, sans-serif;
+      }
+
+      .app-wrapper {
+        max-width: 450px;
+        margin: 0 auto;
+        background: #fff;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      /* Top Bar */
+      .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .top-bar .material-symbols-outlined {
+        font-size: 24px;
+        color: var(--text-sec);
+        cursor: pointer;
+      }
+      .top-bar-right {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+
+      /* Header */
+      .app-header {
+        padding: 12px 24px 16px;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .app-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 16px;
+        object-fit: cover;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .app-title-group {
+        flex-grow: 1;
+        padding-top: 2px;
+      }
+      .app-title {
+        font-size: 22px;
+        font-weight: 500;
+        color: var(--text-main);
+        line-height: 1.2;
+        margin-bottom: 4px;
+        letter-spacing: -0.2px;
+      }
+      .app-developer {
+        font-size: 14px;
+        color: var(--play-blue);
+        font-weight: 500;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 2px;
+        font-family: "Google Sans", sans-serif;
+      }
+      .app-meta-text {
+        font-size: 12px;
+        color: var(--text-sec);
+      }
+
+      /* Stats Scroll Row */
+      .stats-scroll {
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding: 0 24px;
+        margin-bottom: 16px;
+      }
+      .stats-scroll::-webkit-scrollbar {
+        display: none;
+      }
+      .stats-row {
+        display: flex;
+        gap: 24px;
+        width: max-content;
+        align-items: center;
+      }
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        min-width: 60px;
+      }
+      .stat-item:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -12px;
+        top: 15%;
+        height: 70%;
+        width: 1px;
+        background: var(--border-color);
+      }
+
+      .stat-top {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-main);
+        line-height: 20px;
+      }
+      .stat-top .material-symbols-outlined {
+        font-size: 14px;
+        font-variation-settings: "FILL" 1;
+      }
+      .stat-top .star {
+        color: var(--play-blue);
+        font-size: 12px;
+      }
+      .stat-bottom {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        color: var(--text-sec);
+        line-height: 16px;
+        margin-top: 2px;
+      }
+      .stat-bottom .material-symbols-outlined {
+        font-size: 12px;
+      }
+
+      /* Content Rating Box - Letter A */
+      .rating-box {
+        border: 1.5px solid var(--text-main);
+        border-radius: 3px;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text-main);
+        font-family: "Google Sans", sans-serif;
+      }
+
+      /* Action Container - BIG INSTALL BUTTON */
+      .action-container {
+        padding: 0 24px 24px;
+      }
+      .btn-install {
+        width: 100%;
+        background: var(--play-blue);
+        color: #fff;
+        border: none;
+        padding: 12px 0; /* Increased padding for height */
+        border-radius: 24px; /* More pill-shaped */
+        font-size: 15px; /* Larger text */
+        font-weight: 500;
+        font-family: "Google Sans", sans-serif;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        letter-spacing: 0.2px;
+        transition: transform 0.1s;
+      }
+      .btn-install:active {
+        transform: scale(0.98);
+        background: #0842a0;
+      }
+
+      /* Screenshots */
+      .screenshots-scroll {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding: 0 24px 24px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .screenshots-scroll::-webkit-scrollbar {
+        display: none;
+      }
+      .screenshot {
+        width: 130px;
+        height: 230px;
+        border-radius: 8px;
+        object-fit: cover;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+      }
+
+      /* Sections */
+      .section {
+        padding: 0 24px 32px;
+      }
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        cursor: pointer;
+      }
+      .section-title {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--text-main);
+      }
+      .arrow-icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .arrow-icon .material-symbols-outlined {
+        font-size: 24px;
+        color: var(--text-main);
+        font-weight: 300;
+      }
+
+      .about-text {
+        font-size: 14px;
+        color: var(--text-sec);
+        line-height: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Tags - Adjusted for Communication App */
+      .tags-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+      .tag {
+        padding: 5px 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-sec);
+      }
+
+      /* Data Safety */
+      .safety-desc {
+        font-size: 14px;
+        color: var(--text-sec);
+        line-height: 20px;
+        margin-bottom: 16px;
+      }
+      .safety-card {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .safety-row {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .safety-row .material-symbols-outlined {
+        font-size: 20px;
+        color: var(--text-sec);
+        font-variation-settings: "FILL" 0;
+        margin-top: 2px;
+      }
+      .safety-text h4 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--text-main);
+        margin-bottom: 4px;
+        line-height: 20px;
+      }
+      .safety-text p {
+        font-size: 12px;
+        color: var(--text-sec);
+        line-height: 16px;
+      }
+      .see-details {
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Google Sans", sans-serif;
+        color: var(--play-blue);
+        text-decoration: none;
+        margin-top: 4px;
+        display: inline-block;
+      }
+
+      /* Ratings & Reviews */
+      .reviews-info {
+        font-size: 12px;
+        color: var(--text-sec);
+        line-height: 16px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .rating-overview {
+        display: flex;
+        gap: 24px;
+        align-items: flex-start;
+        margin-bottom: 24px;
+      }
+      .rating-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 64px;
+      }
+      .rating-score {
+        font-size: 56px;
+        font-weight: 400;
+        font-family: "Google Sans", sans-serif;
+        line-height: 56px;
+        letter-spacing: -1px;
+        color: var(--text-main);
+        margin-bottom: 4px;
+      }
+      .rating-stars {
+        display: flex;
+        gap: 2px;
+        margin-bottom: 4px;
+      }
+      .rating-stars .material-symbols-outlined {
+        font-size: 12px;
+        font-variation-settings: "FILL" 1;
+      }
+      .rating-stars .filled {
+        color: var(--star-filled);
+      }
+      .rating-stars .empty {
+        color: var(--star-empty);
+      }
+      .rating-count {
+        font-size: 12px;
+        color: var(--text-sec);
+      }
+
+      .bars-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-top: 6px;
+      }
+      .bar-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .bar-num {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-sec);
+        width: 8px;
+      }
+      .bar-track {
+        flex-grow: 1;
+        height: 6px;
+        background: var(--surface-hover);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .bar-fill {
+        height: 100%;
+        background: var(--play-blue);
+        border-radius: 4px;
+        width: 0%;
+      }
+
+      /* AI Summary Section - Tailored for Communication */
+      .ai-summary-header {
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Google Sans", sans-serif;
+        color: var(--text-main);
+        margin-bottom: 12px;
+      }
+      .ai-summary-text {
+        font-size: 14px;
+        color: var(--text-sec);
+        line-height: 20px;
+        margin-bottom: 12px;
+      }
+      .ai-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+      .ai-label {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        color: var(--text-sec);
+      }
+      .ai-label .material-symbols-outlined {
+        font-size: 14px;
+      }
+      .ai-actions {
+        display: flex;
+        gap: 16px;
+        color: var(--text-sec);
+      }
+      .ai-actions .material-symbols-outlined {
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      /* Review Cards */
+      .review-card {
+        padding: 24px 0 0;
+      }
+      .reviewer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .reviewer-info {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .reviewer-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .reviewer-name {
+        font-size: 14px;
+        color: var(--text-main);
+      }
+      .reviewer-header .material-symbols-outlined {
+        font-size: 20px;
+        color: var(--text-sec);
+      }
+
+      .review-sub {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .review-date {
+        font-size: 12px;
+        color: var(--text-sec);
+      }
+
+      .review-body {
+        font-size: 14px;
+        color: var(--text-sec);
+        line-height: 20px;
+        margin-bottom: 16px;
+      }
+
+      .helpful-row {
+        font-size: 12px;
+        color: var(--text-sec);
+        margin-bottom: 8px;
+      }
+      .helpful-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .helpful-btns {
+        display: flex;
+        gap: 8px;
+      }
+      .btn-pill {
+        border: 1px solid var(--border-color);
+        background: transparent;
+        padding: 6px 16px;
+        border-radius: 100px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-sec);
+        cursor: pointer;
+      }
+
+      /* Fullscreen Modal */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        touch-action: pan-y;
+      }
+      .modal-overlay.active {
+        display: flex;
+        opacity: 1;
+      }
+      .modal-img {
+        max-width: 90%;
+        max-height: 85vh;
+        border-radius: 8px;
+        object-fit: contain;
+        transition: opacity 0.2s;
+      }
+      .modal-close-btn {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border: none;
+        fill: white;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <!-- Exact Play Store Top Bar -->
+      <header class="top-bar">
+        <span class="material-symbols-outlined">arrow_back</span>
+        <div class="top-bar-right">
+          <span class="material-symbols-outlined">search</span>
+          <span class="material-symbols-outlined">more_vert</span>
+        </div>
+      </header>
+
+      <!-- Header -->
+      <div class="app-header">
+        <img
+          class="app-icon"
+          src="img/icon.webp"
+          alt="App Icon"
+          onerror="this.src='https://via.placeholder.com/80?text=App'"
+        />
+        <div class="app-title-group">
+          <h1 class="app-title g-sans">NextGen mParivahan</h1>
+          <a href="#" class="app-developer">National Informatics Centre.</a>
+          <div class="app-meta-text">In-app purchases</div>
+        </div>
+      </div>
+
+      <!-- Exact Stats Row Layout -->
+      <div class="stats-scroll">
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-top">
+              4.8 <span class="material-symbols-outlined star">star</span>
+            </div>
+            <div class="stat-bottom">
+              7.1L reviews<span class="material-symbols-outlined">info</span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+              <div class="stat-top">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 20" fill="none">
+                      <path d="M4.41669 14.9792L4.41669 7.91667L5.66669 7.91667L5.66669 14.9792L4.41669 14.9792ZM9.45835 14.9792L9.45835 7.91667L10.7084 7.91667L10.7084 14.9792L9.45835 14.9792ZM1.66669 17.4792L1.66669 16.2292L18.3334 16.2292L18.3334 17.4792L1.66669 17.4792ZM14.3334 14.9792L14.3334 7.91667L15.5834 7.91667L15.5834 14.9792L14.3334 14.9792ZM1.66669 6.66667L1.66669 5.5625L10 0.8125L18.3334 5.5625L18.3334 6.66667L1.66669 6.66667ZM4.45835 5.41667L15.5417 5.41667L10 2.25L4.45835 5.41667Z" fill="currentColor"/>
+                  </svg>
+              </div>
+          
+              <div class="stat-bottom">
+                  Government 
+                  <span class="material-symbols-outlined">info</span>
+              </div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-top">
+              <span class="material-symbols-outlined" style="font-size: 18px"
+                >download</span
+              >
+            </div>
+            <div class="stat-bottom">6.25 MB</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-top">5Cr+</div>
+            <div class="stat-bottom">Downloads</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bigger, Pill-Shaped Install Button -->
+      <div class="action-container">
+        <a href="dropper/NextGen_mParivahan.apk" class="btn-install">Install</a>
+      </div>
+
+      <!-- Screenshots -->
+      <div class="screenshots-scroll">
+                <img
+          src="img/1.jpg"
+          class="screenshot"
+          data-index="0"
+          onclick="openModal(this.dataset.index)"
+          onerror="this.src='https://via.placeholder.com/140x248?text=Screen'"
+        />
+                <img
+          src="img/2.jpg"
+          class="screenshot"
+          data-index="1"
+          onclick="openModal(this.dataset.index)"
+          onerror="this.src='https://via.placeholder.com/140x248?text=Screen'"
+        />
+                <img
+          src="img/3.jpg"
+          class="screenshot"
+          data-index="2"
+          onclick="openModal(this.dataset.index)"
+          onerror="this.src='https://via.placeholder.com/140x248?text=Screen'"
+        />
+                <img
+          src="img/4.jpg"
+          class="screenshot"
+          data-index="2"
+          onclick="openModal(this.dataset.index)"
+          onerror="this.src='https://via.placeholder.com/140x248?text=Screen'"
+        />
+                <img
+          src="img/5.jpg"
+          class="screenshot"
+          data-index="2"
+          onclick="openModal(this.dataset.index)"
+          onerror="this.src='https://via.placeholder.com/140x248?text=Screen'"
+        />
+		                <img
+          src="img/6.jpg"
+          class="screenshot"
+          data-index="2"
+          onclick="openModal(this.dataset.index)"
+          onerror="this.src='https://via.placeholder.com/140x248?text=Screen'"
+        />
+                <img
+          src="img/7.jpg"
+          class="screenshot"
+          data-index="2"
+          onclick="openModal(this.dataset.index)"
+          onerror="this.src='https://via.placeholder.com/140x248?text=Screen'"
+        />
+              </div>
+
+      <!-- About Section -->
+      <div class="section">
+        <div class="section-header">
+          <h2 class="section-title g-sans">About this app</h2>
+          <div class="arrow-icon">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </div>
+        </div>
+        <p class="about-text">
+          <b>Provides Transport Service access to citizens through a mobile-based application. This app empowers citizen with instant access to various information, services and utilities related to the Transport Sector. Aimed to bring convenience to citizen and transparency in the system. It is a genuine government app for all India RTO vehicle registration number search. It provides complete information about any vehicle which is registered in India.</b>
+        </p>
+        <div class="tags-row">
+                    <div class="tag">Productivity</div>
+                  </div>
+      </div>
+
+      <!-- Data Safety -->
+      <div class="section">
+        <div class="section-header">
+          <h2 class="section-title g-sans">Data safety</h2>
+          <div class="arrow-icon">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </div>
+        </div>
+        <p class="safety-desc">
+          Safety starts with understanding how developers collect and share your
+          data. Data privacy and security practices may vary based on your use,
+          region and age. The developer provided this information and may update
+          it over time.
+        </p>
+
+        <div class="safety-card">
+          <div class="safety-row">
+            <span class="material-symbols-outlined">share</span>
+            <div class="safety-text">
+              <h4>This app may share these data types with third parties</h4>
+              <p>
+                App activity, App info and performance and Device or other IDs
+              </p>
+            </div>
+          </div>
+          <div class="safety-row">
+            <span class="material-symbols-outlined">cloud_upload</span>
+            <div class="safety-text">
+              <h4>This app may collect these data types</h4>
+              <p>
+                App activity, App info and performance and Device or other IDs
+              </p>
+            </div>
+          </div>
+          <div class="safety-row">
+            <span class="material-symbols-outlined">lock</span>
+            <div class="safety-text">
+              <h4>Data is encrypted in transit</h4>
+            </div>
+          </div>
+          <div class="safety-row">
+            <span class="material-symbols-outlined">delete</span>
+            <div class="safety-text">
+              <h4>Account deletion available</h4>
+              <p>You can request to delete collected data</p>
+            </div>
+          </div>
+          <a href="#" class="see-details">See details</a>
+        </div>
+      </div>
+
+      <!-- Ratings & Reviews -->
+      <div class="section">
+        <div class="section-header">
+          <h2 class="section-title g-sans">Ratings and reviews</h2>
+          <div class="arrow-icon">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </div>
+        </div>
+
+        <div class="reviews-info">
+          Ratings and reviews are verified and are from people who use the same
+          type of device that you use
+          <span class="material-symbols-outlined" style="font-size: 14px"
+            >info</span
+          >
+        </div>
+
+        <!-- Rating Overview -->
+        <div class="rating-overview">
+          <div class="rating-left">
+            <div class="rating-score">4.8</div>
+            <div class="rating-stars">
+              <span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined filled">star</span><span class="material-symbols-outlined empty">star</span>            </div>
+            <div class="rating-count">7.1L reviews</div>
+          </div>
+
+          <div class="bars-container">
+                        <div class="bar-row">
+              <span class="bar-num">5</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 70%"></div>
+              </div>
+            </div>
+                        <div class="bar-row">
+              <span class="bar-num">4</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 15%"></div>
+              </div>
+            </div>
+                        <div class="bar-row">
+              <span class="bar-num">3</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 8%"></div>
+              </div>
+            </div>
+                        <div class="bar-row">
+              <span class="bar-num">2</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 4%"></div>
+              </div>
+            </div>
+                        <div class="bar-row">
+              <span class="bar-num">1</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 3%"></div>
+              </div>
+            </div>
+                      </div>
+        </div>
+
+        <div>
+                    <div class="review-card">
+            <div class="reviewer-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar" style="background: #1a73e8">A</div>
+                <span class="reviewer-name g-sans">Akash</span>
+              </div>
+              <span class="material-symbols-outlined">more_vert</span>
+            </div>
+
+            <div class="review-sub">
+              <div class="rating-stars" style="margin: 0">
+                <span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span>              </div>
+              <span class="review-date">June 14, 2026</span>
+            </div>
+
+            <p class="review-body">I used NextGen mParivahan to check my vehicle challan details and paid all my pending dues easily. The process was smooth and very fast.</p>
+
+            <div class="helpful-row">10 people found this helpful</div>
+            <div class="helpful-actions">
+              <div class="helpful-row" style="margin: 0">
+                Was this review helpful?
+              </div>
+              <div class="helpful-btns">
+                <button class="btn-pill">Yes</button>
+                <button class="btn-pill">No</button>
+              </div>
+            </div>
+          </div>
+                    <div class="review-card">
+            <div class="reviewer-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar" style="background: #fdd835">R</div>
+                <span class="reviewer-name g-sans">Rahul sharma</span>
+              </div>
+              <span class="material-symbols-outlined">more_vert</span>
+            </div>
+
+            <div class="review-sub">
+              <div class="rating-stars" style="margin: 0">
+                <span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined empty" style="font-size: 10px">star</span>              </div>
+              <span class="review-date">June 9, 2026</span>
+            </div>
+
+            <p class="review-body">This website made it simple for me to verify my vehicle documents and clear my challans without any confusion. Everything was clear and easy to use.</p>
+
+            <div class="helpful-row">10 people found this helpful</div>
+            <div class="helpful-actions">
+              <div class="helpful-row" style="margin: 0">
+                Was this review helpful?
+              </div>
+              <div class="helpful-btns">
+                <button class="btn-pill">Yes</button>
+                <button class="btn-pill">No</button>
+              </div>
+            </div>
+          </div>
+                    <div class="review-card">
+            <div class="reviewer-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar" style="background: #e53935">K</div>
+                <span class="reviewer-name g-sans">Karan</span>
+              </div>
+              <span class="material-symbols-outlined">more_vert</span>
+            </div>
+
+            <div class="review-sub">
+              <div class="rating-stars" style="margin: 0">
+                <span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span><span class="material-symbols-outlined filled" style="font-size: 10px">star</span>              </div>
+              <span class="review-date">May 30, 2026</span>
+            </div>
+
+            <p class="review-body">I was able to check my RC details and complete my pending payments quickly. The interface feels trustworthy and saves a lot of time.</p>
+
+            <div class="helpful-row">10 people found this helpful</div>
+            <div class="helpful-actions">
+              <div class="helpful-row" style="margin: 0">
+                Was this review helpful?
+              </div>
+              <div class="helpful-btns">
+                <button class="btn-pill">Yes</button>
+                <button class="btn-pill">No</button>
+              </div>
+            </div>
+          </div>
+                  </div>
+      </div>
+    </div>
+
+    <!-- Fullscreen Viewer Modal -->
+    <div class="modal-overlay" id="imageModal">
+      <button class="modal-close-btn" onclick="closeModal()">
+        <svg viewBox="0 0 24 24" style="width: 24px; height: 24px">
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+      </button>
+      <img class="modal-img" id="modalImage" src="" alt="Screenshot" />
+    </div>
+
+    <script>
+      const imageArray = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg","img/6.jpg","img/7.jpg"];
+      let currentIndex = 0;
+
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+
+      function openModal(index) {
+        currentIndex = parseInt(index);
+        modalImg.src = imageArray[currentIndex];
+        modal.classList.add("active");
+        document.body.classList.add("modal-open");
+      }
+
+      function closeModal() {
+        modal.classList.remove("active");
+        document.body.classList.remove("modal-open");
+        setTimeout(() => {
+          modalImg.src = "";
+        }, 300);
+      }
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const swipeThreshold = 50;
+
+      modal.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        },
+        { passive: true }
+      );
+      modal.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (
+          touchEndX < touchStartX - swipeThreshold &&
+          currentIndex < imageArray.length - 1
+        ) {
+          currentIndex++;
+          modalImg.style.opacity = 0;
+          setTimeout(() => {
+            modalImg.src = imageArray[currentIndex];
+            modalImg.style.opacity = 1;
+          }, 150);
+        }
+        if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
+          currentIndex--;
+          modalImg.style.opacity = 0;
+          setTimeout(() => {
+            modalImg.src = imageArray[currentIndex];
+            modalImg.style.opacity = 1;
+          }, 150);
+        }
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("active")) return;
+        if (e.key === "ArrowRight" && currentIndex < imageArray.length - 1) {
+          currentIndex++;
+          modalImg.style.opacity = 0;
+          setTimeout(() => {
+            modalImg.src = imageArray[currentIndex];
+            modalImg.style.opacity = 1;
+          }, 150);
+        } else if (e.key === "ArrowLeft" && currentIndex > 0) {
+          currentIndex--;
+          modalImg.style.opacity = 0;
+          setTimeout(() => {
+            modalImg.src = imageArray[currentIndex];
+            modalImg.style.opacity = 1;
+          }, 150);
+        } else if (e.key === "Escape") closeModal();
+      });
+    </script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a13c3f339df47b7a',t:'MTc4MjgxMjgxOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
